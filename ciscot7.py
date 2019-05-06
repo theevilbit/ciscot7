@@ -57,12 +57,15 @@ def main():
 	usage = "Usage: %prog [options]"
 	parser = optparse.OptionParser(usage=usage)
 	parser.add_option('-e', '--encrypt', action='store_true', dest='encrypt', default=False, help='Encrypt password')
-	parser.add_option('-d', '--descrypt', action='store_true', dest='decrypt',default=True, help='Decrypt password. This is the default')
+	parser.add_option('-d', '--decrypt', action='store_true', dest='decrypt',default=True, help='Decrypt password. This is the default')
 	parser.add_option('-p', '--password', action='store', dest="password", help='Password to encrypt / decrypt')
 	parser.add_option('-f', '--file', action='store', dest="file", help='Cisco config file, only for decryption')
 	options, args = parser.parse_args()
 	render_as = "files"
 
+	#fix issue 1, if encrypt is selected, that takes precedence
+	if (options.encrypt):
+		options.decrypt = False
 	if (options.password is not None):
 		if(options.decrypt):
 			print "Decrypted password: " + decrypt_type7(options.password)
