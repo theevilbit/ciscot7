@@ -68,9 +68,9 @@ def main():
 		options.decrypt = False
 	if (options.password is not None):
 		if(options.decrypt):
-			print "Decrypted password: " + decrypt_type7(options.password)
+			print("Decrypted password: " + decrypt_type7(options.password))
 		elif(options.encrypt):
-			print "Encrypted password: " + encrypt_type7(options.password)
+			print("Encrypted password: " + encrypt_type7(options.password))
 	elif (options.file is not None):
 		if(options.decrypt):
 			try:
@@ -79,9 +79,9 @@ def main():
 				for line in f:
 					result = regex.search(line)
 					if(result):
-						print "Decrypted password: " + decrypt_type7(result.group(2))
+						print("Decrypted password: " + decrypt_type7(result.group(2)))
 			except IOError:
-				print "Couldn't open file: " + options.file
+				print("Couldn't open file: " + options.file)
 		elif(options.encrypt):
 			parser.error("You can't encrypt a config file\nPlease run 'python ciscot7.py --help' for usage instructions.")
 	else:
