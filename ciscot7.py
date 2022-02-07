@@ -46,7 +46,7 @@ def encrypt_type7(pt):
 	Make Type 7 Cisco password from a string
 	"""
 	salt = random.randrange(0,15);
-	ep = "%02x" % salt
+	ep = "%02d" % salt
 	for i in range(len(pt)):
 		ep += "%02x" % (ord(pt[i]) ^ xlat[salt])
 		salt += 1
