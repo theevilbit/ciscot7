@@ -5,7 +5,7 @@ setup(
     version=1,
     description='Cisco Type 7 Password Decrypter',
     author='theevilbit',
-    url='https://github.com/JamesConlan96/ciscot7',
+    url='https://github.com/theevilbit/ciscot7',
     license='MIT',
     py_modules=[
         'ciscot7'
